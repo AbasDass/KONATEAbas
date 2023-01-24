@@ -533,3 +533,48 @@ h2 {
     }
 }
 
+@media screen and (max-width:360px) {
+    .topInfo img {
+        height: 70px;
+    }
+
+    .nomPrenom {
+       font-size: 95%;
+       margin-left: 80px;
+       margin-top: 15px;
+    }
+
+    .mail {
+        margin-left: 80px;
+        font-size:60%;
+        margin-top:-204px ;
+    }
+
+    .allLogo {
+        margin-top: 15px;
+    }
+
+    .textIntro {
+        width: 90%;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .container {
+        margin-left: 2px;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .textFront {
+        margin-right: 50px;
+    }
+
+    .textBack {
+        margin-right: 5px;
+    }
+
+    .textcv h2{
+        text-align: center;
+    }
+}
