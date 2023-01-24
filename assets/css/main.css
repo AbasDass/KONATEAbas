@@ -49,10 +49,6 @@ body {
     background-color: black;
 }
 
-/* .blockC {
-    display: flex;
-    justify-content: center;
-} */
 
 .textFront {
     margin-left: 50px;
@@ -340,12 +336,6 @@ h2 {
 }
 
 
-
-
-
-
-
-
 @media screen and (max-width:768px) {
     .eP {
         flex-direction: column;
@@ -558,6 +548,7 @@ h2 {
         width: 90%;
         margin-bottom: 20px;
         margin-top: 10px;
+        margin-left: 20px;
     }
 
     .container {
@@ -578,3 +569,57 @@ h2 {
         text-align: center;
     }
 }
+
+@media screen and (min-width:361px) {
+    .textIntro {
+        width: 90%;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    .container {
+        margin-left: 2px;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .textFront {
+        margin-right: 50px;
+    }
+
+    .textBack {
+        margin-right: 5px;
+    }
+
+    .textcv h2{
+        text-align: center;
+    }
+}
+
+ @media screen and (min-width:533px) and (max-width:591px) {
+    .textIntro {
+        width: 90%;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    .container {
+        margin-left: 2px;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .textFront {
+        margin-right: 50px;
+    }
+
+    .textBack {
+        margin-right: 5px;
+    }
+
+    .textcv h2{
+        text-align: center;
+    }
+} 
