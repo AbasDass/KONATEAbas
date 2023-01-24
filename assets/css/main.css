@@ -283,7 +283,7 @@ h2 {
 
 /* media */
 
-@media screen and (max-width:1312px) {
+/* @media screen and (max-width:1312px) {
     .allLogo {
         margin-left: 80%;
     }
@@ -352,7 +352,7 @@ h2 {
     }
 
     /* format phone */
-
+/* 
     .textP {
         font-size: 130%;
     }
@@ -622,4 +622,4 @@ h2 {
     .textcv h2{
         text-align: center;
     }
-} 
+}   */
