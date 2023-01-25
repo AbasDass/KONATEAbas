@@ -6,13 +6,11 @@ body {
 }
 
 .allLogo {
-    position: absolute;
     display: flex;
-    float: right;
     flex-direction:row;
+    justify-content: flex-end;
     margin-top: 40px;
-    margin-bottom: 50px;
-    margin-left: 72em;
+    margin-right: 10px;
 }
 
 
@@ -38,7 +36,6 @@ body {
    display: flex;
    flex-direction: column;
    margin-left: 250px;
-   margin-top: -500px;
 }
 
 .container2 {
@@ -85,8 +82,6 @@ body {
     margin-left: 90px;
 }
 
-
-
 h3 {
     font-size: 1.5em;
 }
@@ -111,29 +106,28 @@ h3 {
     margin-top: 30px;
 }
 
-
-.topInfo img {
-    clip-path: ellipse(50% 40%);
-    height: 150px;
+.presentation {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
     margin-left: 20px;
-    margin-top: 45px;
 }
 
-
+.imgAbas img{
+    clip-path: ellipse(50% 38%);
+    height: 150px;
+}
 
 .nomPrenom {
     font-family: fantasy;
-    font-size: 2em;
+    font-size: 25px;
     color: rgb(194, 183, 183);
-    margin-top: 50px;
-    margin-left: 20px;
 }
 
 .ageAbas {
     font-family: fantasy;
-    font-size: 2em;
+    font-size: 25px;
     color: rgb(194, 183, 183);
-    margin-left: 20px;
 }
 
 
@@ -143,51 +137,16 @@ a {
 }
 
 .devWeb {
-    margin-left: 20px;
     font-family: fantasy;
-    font-size: 20px;
+    font-size: 25px;
     color: rgb(194, 183, 183);
-    margin-bottom: 40px;
 }
-
+    
 .mail {
     font-family: fantasy;
-    font-size: 1em;
+    font-size: 15px;
     color: rgb(194, 183, 183);
-    margin-left: 20px;
     text-decoration: underline;
-}
-
-.langue {
-    margin-top: -11px;
-    margin-left: 60px;
-    font-family: fantasy;
-    color: white;
-}
-
-.atouts {
-    margin-top: -11px;
-    margin-left: 65px;
-    font-family: fantasy;
-    color: white;
-}
-
-.info {
-    margin-top: 38px;
-    font-size: 18px;
-    font-family: fantasy;
-    color: rgb(194, 183, 183);
-}
-
-.info p {
-    margin-bottom: 30px;
-}
-
-.centre p {
-    margin-top: 38px;
-    font-size: 18px;
-    font-family: fantasy;
-    color: rgb(194, 183, 183);
 }
 
 
@@ -235,13 +194,8 @@ a {
     margin: 9.5px 2px;
 }
 
-.expPro {
-    font-family: fantasy;
-    color: rgb(111, 104, 104);
-}
-
 .informatique ol li{
-    font-family: fantasy;
+    font-family: 'Montserrat', sans-serif;
     color: rgb(111, 104, 104);
 } 
 
@@ -251,7 +205,8 @@ a {
 
 
 .textEp {
-   font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(111, 104, 104);
 }
 
 h2 {
@@ -273,3 +228,47 @@ h2 {
 
 
 /* media */
+
+@media screen and (min-width : 320px) and (max-width : 360px) {
+    
+
+    .barreSuite {
+        visibility: hidden;
+    }
+
+    .barreSuite2 {
+        visibility: hidden;
+    }
+
+    .eP {
+        flex-direction: column;
+    }
+
+    
+    .allLogo {
+        margin-left: 320%;
+    }
+
+    .LCV {
+        height: 250%;
+        margin-right: 100px;
+    }
+    .LLK {
+        height: 250%;
+    }
+    .LG {
+        height: 220%;
+        margin-top: 10px;
+        margin-left: 125px;
+    }
+
+    .textIntro {
+        font-size: 2em;
+    }
+
+    .cardProject {
+        flex-direction: column;
+    }
+
+
+}
