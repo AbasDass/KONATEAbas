@@ -503,19 +503,20 @@ h2 {
     
     .imgAbas img{
         height: 80px;
-        margin-top: 0px;
+        margin-top: -5px;
     }
 
     .nomPrenom {
-       font-size: 110%;
+       font-size: 115%;
        margin-left: 3px;
-       margin-top: 4.5px;
+       margin-top: 5px;
     }
 
     .mail {
         font-size:90%;
         margin-top: 26px;
         margin-left: -101.2px;
+        visibility: hidden;
     }
 
     .ageAbas {
@@ -532,7 +533,7 @@ h2 {
 
     .textIntro {
         width: 90%;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
         margin-top: 10px;
         margin-left: 20px;
     }
@@ -541,18 +542,20 @@ h2 {
         margin-left: 2px;
         margin-right: 0;
         text-align: center;
+        margin-top: 50px;
     }
 
-    .textFront {
-        margin-right: 50px;
-    }
 
     .textBack {
-        margin-right: 5px;
+        margin-right: 10%;
     }
 
     .textcv h2{
-        text-align: center;
+        margin-left: 21%;
+    }
+
+    .informatique h2{
+        margin-left: 15%;
     }
 } 
 
