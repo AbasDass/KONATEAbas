@@ -37,6 +37,7 @@ body {
 .textIntro {
     font-size: 2.5em;
     color: rgb(111, 104, 104);
+    font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
 }
 
 .container {
@@ -123,18 +124,18 @@ h3 {
 .imgAbas img{
     clip-path: ellipse(50% 38%);
     height: 150px;
+    margin-top: -60px;
 }
 
 .nomPrenom {
     font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
-    font-size: 25px;
     color: rgb(194, 183, 183);
 }
 
 .ageAbas {
     font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
-    font-size: 25px;
     color: rgb(194, 183, 183);
+    font-size: small;
 }
 
 
@@ -235,60 +236,32 @@ h2 {
 
 /* media */
 
-/* @media screen and (min-width : 320px) and (max-width : 360px) {
-    
 
-    .barreSuite {
-        visibility: hidden;
-    }
-
-    .barreSuite2 {
-        visibility: hidden;
-    }
-
-    .eP {
-        flex-direction: column;
-    }
-
-    
-    .allLogo {
-        margin-left: 320%;
-    }
-
-    .LCV {
-        height: 250%;
-        margin-right: 100px;
-    }
-    .LLK {
-        height: 250%;
-    }
-    .LG {
-        height: 220%;
-        margin-top: 10px;
-        margin-left: 125px;
-    }
-
-    .textIntro {
-        font-size: 2em;
-    }
-
-    .cardProject {
-        flex-direction: column;
-    }
-
-
-} */
 
 
 @media screen and (max-width:1312px) {
     .allLogo {
         margin-left: 80%;
     }
+
+    .barreSuite {
+        visibility: hidden;
+    }
+    .barreSuite2 {
+        visibility: hidden;
+    }
 } 
 
 @media screen and (max-width:1101px) {
     .container {
         margin-left: 20%;
+    }
+
+    .barreSuite {
+        visibility: hidden;
+    }
+    .barreSuite2 {
+        visibility: hidden;
     }
 }
 
@@ -329,6 +302,13 @@ h2 {
 @media screen and (max-width:1000px) {
     .textIntro {
         margin-left: 15%;
+    }
+
+    .barreSuite {
+        visibility: hidden;
+    }
+    .barreSuite2 {
+        visibility: hidden;
     }
 }
 
@@ -372,6 +352,13 @@ h2 {
 
     .carre2 {
         margin-left: 0%;
+    }
+
+    .barreSuite {
+        visibility: hidden;
+    }
+    .barreSuite2 {
+        visibility: hidden;
     }
 }
 
@@ -426,9 +413,16 @@ h2 {
     .projet2 {
         margin-top: 7px;
     }
+
+    .barreSuite {
+        visibility: hidden;
+    }
+    .barreSuite2 {
+        visibility: hidden;
+    }
 }
 
-@media screen and (min-width:1337px) {
+@media screen and (min-width:1337px) and (max-width:1366px){
     .allLogo {
         margin-left: 88%;
     } 
@@ -438,40 +432,98 @@ h2 {
     }
 
     .nomPrenom {
-        font-size: 300%;
+        font-size: 120%;
     }
 
     .ageAbas {
-        font-size: 300%;
+        font-size: 120%;
     }
 
     .devWeb {
         font-size: 120%;
     }
-}
 
-@media screen and (min-width:1588px) {
     .barreSuite {
-        height: 41%;
-        margin-top: -61.1rem;
+        visibility: hidden;
+    }
+    .barreSuite2 {
+        visibility: hidden;
     }
 }
 
-@media screen and (max-width:360px) {
-    .topInfo img {
-        height: 70px;
+@media screen and (min-width:1000px) and (max-width:1336px) {
+    .nomPrenom {
+        font-size: 120%;
+    }
+
+    .ageAbas {
+        font-size: 120%;
+    }
+
+    .devWeb {
+        font-size: 120%;
+    }
+
+    .barreSuite {
+        visibility: hidden;
+    }
+    .barreSuite2 {
+        visibility: hidden;
+    }
+}
+@media screen and (min-width:1337px) and (max-width:1370px) {
+    .nomPrenom {
+        font-size: 120%;
+    }
+
+    .ageAbas {
+        font-size: 120%;
+    }
+
+    .devWeb {
+        font-size: 120%;
+    }
+
+    .barreSuite {
+        visibility: hidden;
+    }
+
+    .barreSuite2 {
+        visibility: hidden;
+    }
+}
+
+
+@media screen and (min-width:360px) and (max-width:500px) {
+    
+    .presentation {
+        flex-direction: row;
+        margin-top: -60px;
+    }
+    
+    .imgAbas img{
+        height: 80px;
+        margin-top: 0px;
     }
 
     .nomPrenom {
-       font-size: 95%;
-       margin-left: 80px;
-       margin-top: 15px;
+       font-size: 110%;
+       margin-left: 3px;
+       margin-top: 4.5px;
     }
 
     .mail {
-        margin-left: 80px;
-        font-size:60%;
-        margin-top:-204px ;
+        font-size:90%;
+        margin-top: 26px;
+        margin-left: -101.2px;
+    }
+
+    .ageAbas {
+        visibility: hidden;
+    }
+
+    .devWeb {
+        visibility: hidden;
     }
 
     .allLogo {
@@ -502,34 +554,8 @@ h2 {
     .textcv h2{
         text-align: center;
     }
-}
+} 
 
-@media screen and (min-width:361px) {
-    .textIntro {
-        width: 90%;
-        margin-bottom: 20px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    .container {
-        margin-left: 2px;
-        margin-right: 0;
-        text-align: center;
-    }
-
-    .textFront {
-        margin-right: 50px;
-    }
-
-    .textBack {
-        margin-right: 5px;
-    }
-
-    .textcv h2{
-        text-align: center;
-    }
-}
 
  @media screen and (min-width:533px) and (max-width:591px) {
     .textIntro {
