@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'kaushan_scriptregular';
+    src: url('../font/kaushanscript-regular-webfont.woff2') format('woff2'),
+         url('../font/kaushanscript-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     box-sizing: border-box;
     background-color: rgb(22, 22, 22);
@@ -21,14 +29,14 @@ body {
 } 
 
 .textProjet {
-    font-family:fantasy;
+    font-family: 'kaushan_scriptregular', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 3.5em;
     color: rgb(99, 99, 98);
 }
 
 .textIntro {
     font-size: 2.5em;
-    font-family: fantasy;
+    font-family: 'kaushan_scriptregular', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(111, 104, 104);
 }
 
@@ -119,13 +127,13 @@ h3 {
 }
 
 .nomPrenom {
-    font-family: fantasy;
+    font-family: 'kaushan_scriptregular', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 25px;
     color: rgb(194, 183, 183);
 }
 
 .ageAbas {
-    font-family: fantasy;
+    font-family: 'kaushan_scriptregular', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 25px;
     color: rgb(194, 183, 183);
 }
@@ -137,13 +145,13 @@ a {
 }
 
 .devWeb {
-    font-family: fantasy;
+    font-family: 'kaushan_scriptregular', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 25px;
     color: rgb(194, 183, 183);
 }
     
 .mail {
-    font-family: fantasy;
+    font-family: 'kaushan_scriptregular', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 15px;
     color: rgb(194, 183, 183);
     text-decoration: underline;
@@ -181,7 +189,6 @@ a {
 }
 
 .textcv { 
-    font-family: fantasy;
     color: rgb(111, 104, 104);
 }
 
