@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'kaushan_scriptregular';
     src: url('../font/kaushanscript-regular-webfont.woff2') format('woff2'),
-         url('../font/kaushanscript-regular-webfont.woff') format('woff');
+        url('../font/kaushanscript-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -15,7 +15,7 @@ body {
 
 .allLogo {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     justify-content: flex-end;
     margin-top: 40px;
     margin-right: 10px;
@@ -26,7 +26,7 @@ body {
     height: 41px;
     margin-top: 3px;
     margin-left: 7px;
-} 
+}
 
 .textProjet {
     font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
@@ -41,14 +41,14 @@ body {
 }
 
 .container {
-   display: flex;
-   flex-direction: column;
-   margin-left: 250px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
 }
 
 .container2 {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     flex-direction: row;
     background-color: black;
 }
@@ -57,7 +57,8 @@ body {
 .textFront {
     margin-left: 50px;
     color: rgb(69, 69, 68);
-    font-family: 'Jost', sans-serif;;
+    font-family: 'Jost', sans-serif;
+    ;
 }
 
 .textBack {
@@ -121,7 +122,7 @@ h3 {
     margin-left: 20px;
 }
 
-.imgAbas img{
+.imgAbas img {
     clip-path: ellipse(50% 38%);
     height: 150px;
     margin-top: -60px;
@@ -149,7 +150,7 @@ a {
     font-size: 25px;
     color: rgb(194, 183, 183);
 }
-    
+
 .mail {
     font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
     font-size: 15px;
@@ -168,6 +169,7 @@ a {
     margin-top: -64.1em;
     visibility: visible;
 }
+
 .barreSuite2 {
     position: absolute;
     border-left: 1.5px solid;
@@ -182,13 +184,14 @@ a {
     color: rgb(194, 183, 183);
     font-size: 1.2em;
 }
+
 .textP2 {
     font-family: 'Montserrat', sans-serif;
     color: rgb(194, 183, 183);
     font-size: 1.2em;
 }
 
-.textcv { 
+.textcv {
     color: rgb(111, 104, 104);
 }
 
@@ -197,16 +200,16 @@ a {
     margin-top: -20px;
 }
 
-.listInformatique ol li{
+.listInformatique ol li {
     margin: 9.5px 2px;
 }
 
-.informatique ol li{
+.informatique ol li {
     font-family: 'Montserrat', sans-serif;
     color: rgb(111, 104, 104);
-} 
+}
 
-.logoInfo li{
+.logoInfo li {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -223,7 +226,7 @@ h2 {
     text-decoration: underline;
 }
 
-.logoMots li{
+.logoMots li {
     list-style: none;
 }
 
@@ -235,7 +238,76 @@ h2 {
 
 
 /* media */
+@media screen and (min-width:1371px) and (max-width:1920px) {
+    .textIntro {
+        font-size: 400%;
+    }
 
+    .textProjet {
+        font-size: 400%;
+    }
+
+    .textP {
+        font-size: 200%;
+    }
+
+    .textP2 {
+        font-size: 200%;
+    }
+
+    .projet1 {
+        height: 65%;
+        width: 85%;
+    }
+
+    .projet2 {
+        height: 65%;
+        width: 85%;
+    }
+
+
+    .barreSuite {
+        visibility: hidden;
+    }
+
+    .barreSuite2 {
+        visibility: hidden
+    }
+
+    .topInfo img {
+        height: 500px;
+    }
+
+    .nomPrenom {
+        font-size: 130%;
+    }
+
+    .ageAbas {
+        font-size: 130%;
+    }
+
+    .devWeb {
+        font-size: 130%;
+    }
+
+    .presentation {
+        margin-left: 50px;
+    }
+    
+
+    .eP {
+        font-size: 180%;
+    }
+
+    .styleList {
+        font-size: 170%;
+    }
+
+    .titreSp {
+        font-size: 300%;
+    }
+
+}
 
 
 
@@ -247,10 +319,11 @@ h2 {
     .barreSuite {
         visibility: hidden;
     }
+
     .barreSuite2 {
         visibility: hidden;
     }
-} 
+}
 
 @media screen and (max-width:1101px) {
     .container {
@@ -260,6 +333,7 @@ h2 {
     .barreSuite {
         visibility: hidden;
     }
+
     .barreSuite2 {
         visibility: hidden;
     }
@@ -271,7 +345,7 @@ h2 {
     }
 
     .projet1 {
-       width: 100%;
+        width: 100%;
     }
 
     .textP2 {
@@ -279,11 +353,13 @@ h2 {
     }
 
     .projet2 {
-       width: 100%;
+        width: 100%;
     }
+
     .barreSuite {
         visibility: hidden;
     }
+
     .barreSuite2 {
         visibility: hidden;
     }
@@ -307,6 +383,7 @@ h2 {
     .barreSuite {
         visibility: hidden;
     }
+
     .barreSuite2 {
         visibility: hidden;
     }
@@ -335,7 +412,7 @@ h2 {
     }
 
     .projet1 {
-       width: 70%;
+        width: 70%;
     }
 
     .textP2 {
@@ -343,7 +420,7 @@ h2 {
     }
 
     .projet2 {
-       width: 70%;
+        width: 70%;
     }
 
     .textIntro {
@@ -357,6 +434,7 @@ h2 {
     .barreSuite {
         visibility: hidden;
     }
+
     .barreSuite2 {
         visibility: hidden;
     }
@@ -378,7 +456,7 @@ h2 {
     .expPro {
         margin-left: 17%;
     }
-    
+
 }
 
 
@@ -417,15 +495,16 @@ h2 {
     .barreSuite {
         visibility: hidden;
     }
+
     .barreSuite2 {
         visibility: hidden;
     }
 }
 
-@media screen and (min-width:1337px) and (max-width:1366px){
+@media screen and (min-width:1337px) and (max-width:1366px) {
     .allLogo {
         margin-left: 88%;
-    } 
+    }
 
     .topInfo img {
         height: 230px;
@@ -446,6 +525,7 @@ h2 {
     .barreSuite {
         visibility: hidden;
     }
+
     .barreSuite2 {
         visibility: hidden;
     }
@@ -467,10 +547,12 @@ h2 {
     .barreSuite {
         visibility: hidden;
     }
+
     .barreSuite2 {
         visibility: hidden;
     }
 }
+
 @media screen and (min-width:1337px) and (max-width:1370px) {
     .nomPrenom {
         font-size: 120%;
@@ -495,25 +577,25 @@ h2 {
 
 
 @media screen and (min-width:360px) and (max-width:500px) {
-    
+
     .presentation {
         flex-direction: row;
         margin-top: -60px;
     }
-    
-    .imgAbas img{
+
+    .imgAbas img {
         height: 80px;
         margin-top: -5px;
     }
 
     .nomPrenom {
-       font-size: 115%;
-       margin-left: 3px;
-       margin-top: 5px;
+        font-size: 115%;
+        margin-left: 3px;
+        margin-top: 5px;
     }
 
     .mail {
-        font-size:90%;
+        font-size: 90%;
         margin-top: 26px;
         margin-left: -101.2px;
         visibility: hidden;
@@ -550,17 +632,17 @@ h2 {
         margin-right: 10%;
     }
 
-    .textcv h2{
+    .textcv h2 {
         margin-left: 21%;
     }
 
-    .informatique h2{
+    .informatique h2 {
         margin-left: 15%;
     }
-} 
+}
 
 
- @media screen and (min-width:533px) and (max-width:591px) {
+@media screen and (min-width:533px) and (max-width:591px) {
     .textIntro {
         width: 90%;
         margin-bottom: 20px;
@@ -582,7 +664,7 @@ h2 {
         margin-right: 5px;
     }
 
-    .textcv h2{
+    .textcv h2 {
         text-align: center;
     }
-} 
+}
