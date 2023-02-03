@@ -91,6 +91,7 @@ body {
     margin-left: 90px;
 }
 
+
 h3 {
     font-size: 1.5em;
 }
@@ -238,6 +239,12 @@ h2 {
 
 
 /* media */
+
+@media screen and (min-width:1157px) and (max-width:1370px) {
+    
+}
+
+
 @media screen and (min-width:1371px) and (max-width:1920px) {
     .textIntro {
         font-size: 400%;
