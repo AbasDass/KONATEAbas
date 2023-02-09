@@ -31,13 +31,18 @@ body {
 .textProjet {
     font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
     font-size: 3.5em;
-    color: rgb(99, 99, 98);
+    color: rgb(185, 185, 185);
 }
 
 .textIntro {
     font-size: 2.5em;
-    color: rgb(111, 104, 104);
+    color: rgb(185, 185, 185);
     font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
+}
+
+#redim {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
 }
 
 .container {
@@ -58,8 +63,9 @@ body {
     margin-left: 50px;
     color: rgb(69, 69, 68);
     font-family: 'Jost', sans-serif;
-    ;
 }
+
+
 
 .textBack {
     margin-left: 50px;
@@ -70,6 +76,7 @@ body {
 
 .titreSp {
     font-family: 'Jost', sans-serif;
+    color: rgb(185, 185, 185);
 }
 
 
@@ -101,7 +108,7 @@ h3 {
     font-size: 1em;
     font-style: italic;
     font-family: 'Jost', sans-serif;
-    color: rgb(99, 99, 98);
+    color: rgb(194, 183, 183);
 }
 
 .projet1 {
@@ -207,7 +214,7 @@ a {
 
 .informatique ol li {
     font-family: 'Montserrat', sans-serif;
-    color: rgb(111, 104, 104);
+    color: rgb(194, 183, 183);
 }
 
 .logoInfo li {
@@ -217,7 +224,7 @@ a {
 
 .textEp {
     font-family: 'Montserrat', sans-serif;
-    color: rgb(111, 104, 104);
+    color: rgb(194, 183, 183);
 }
 
 h2 {
