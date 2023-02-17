@@ -12,13 +12,7 @@
 //         background.style.visibility = 'hidden';
 // });
 
-const logoFixScroll = document.querySelector('allLogo');
 
-logoFixScroll.addEventListener('scroll', (e) => {
-        logoFixScroll.style.position = 'fixed';
-});
-
-console.log('salut');
 
 
 

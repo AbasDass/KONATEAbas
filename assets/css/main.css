@@ -238,9 +238,6 @@ h2 {
     list-style: none;
 }
 
-/* .allLogo {
-    position: fixed;
-} */
 
 .projR {
     font-size: 5em;
@@ -331,6 +328,7 @@ h2 {
 @media screen and (max-width:1312px) {
     .allLogo {
         margin-left: 80%;
+        z-index: 1;
     }
 
     .barreSuite {
@@ -460,6 +458,7 @@ h2 {
 @media screen and (max-width:734px) {
     .allLogo {
         margin-left: 75%;
+        z-index:1
     }
 
     .textIntro {
@@ -626,9 +625,6 @@ h2 {
         visibility: hidden;
     }
 
-    .allLogo {
-        margin-top: 15px;
-    }
 
     .textIntro {
         width: 90%;
