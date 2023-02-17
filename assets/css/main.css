@@ -246,9 +246,7 @@ h2 {
 
 /* media */
 
-@media screen and (min-width:1157px) and (max-width:1370px) {
-    
-}
+@media screen and (min-width:1157px) and (max-width:1370px) {}
 
 
 @media screen and (min-width:1371px) and (max-width:1920px) {
@@ -306,7 +304,7 @@ h2 {
     .presentation {
         margin-left: 50px;
     }
-    
+
 
     .eP {
         font-size: 180%;
@@ -596,34 +594,42 @@ h2 {
         margin-top: -160px;
     }
 
+
     .allLogo {
         flex-direction: column;
+        margin-top: 90px;
     }
 
+
     .imgAbas img {
-        height: 80px;
-        margin-top: -5px;
+        position: absolute;
+        height: 110px;
+        margin-left: 120px;
     }
 
     .nomPrenom {
         font-size: 115%;
-        margin-left: 3px;
+        margin-left: 9px;
         margin-top: 5px;
     }
 
     .mail {
-        font-size: 90%;
+        font-size: 115%;
         margin-top: 26px;
         margin-left: -101.2px;
         visibility: hidden;
     }
 
     .ageAbas {
-        visibility: hidden;
+        font-size: 0.9rem;
+        margin-left: 9px;
+        margin-top: 5px;
     }
 
     .devWeb {
-        visibility: hidden;
+        font-size: 0.9rem;
+        margin-left: 9px;
+        margin-top: 5px;
     }
 
 
