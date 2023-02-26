@@ -596,21 +596,25 @@ h2 {
 
 
     .allLogo {
+        position:absolute;
         flex-direction: column;
-        margin-top: 90px;
+        margin-top: -80px;
+        /* margin-left: 0; */
+        margin-bottom: -500px;
     }
 
 
     .imgAbas img {
-        position: absolute;
-        height: 110px;
-        margin-left: 120px;
+        position: relative;
+        height: 90px;
+        margin-left: 5%;
+        margin-top: -50px;
     }
 
     .nomPrenom {
         font-size: 115%;
-        margin-left: 9px;
-        margin-top: 5px;
+        margin-left: 4px;
+        margin-top: 25px;
     }
 
     .mail {
@@ -622,13 +626,13 @@ h2 {
 
     .ageAbas {
         font-size: 0.9rem;
-        margin-left: 9px;
+        margin-left: 4px;
         margin-top: 5px;
     }
 
     .devWeb {
         font-size: 0.9rem;
-        margin-left: 9px;
+        margin-left: 4px;
         margin-top: 5px;
     }
 
