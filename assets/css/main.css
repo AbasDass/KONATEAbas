@@ -22,11 +22,6 @@ body {
 }
 
 
-/* .LG {
-    height: 41px;
-    margin-top: 3px;
-    margin-left: 7px;
-} */
 
 .textProjet {
     font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
@@ -597,24 +592,26 @@ h2 {
 
     .allLogo {
         position:absolute;
-        flex-direction: column;
-        margin-top: -80px;
-        /* margin-left: 0; */
+        justify-content: space-between;
+        flex-direction: row;
+        margin-top: 125px;
+        margin-left: 30%;
         margin-bottom: -500px;
     }
 
 
     .imgAbas img {
-        position: relative;
+        position: absolute;
         height: 90px;
-        margin-left: 5%;
-        margin-top: -50px;
+        margin-left: 125px;
+        margin-top: 130px;
     }
 
     .nomPrenom {
+        position: absolute;
         font-size: 115%;
         margin-left: 4px;
-        margin-top: 25px;
+        margin-top: 109px;
     }
 
     .mail {
@@ -625,22 +622,24 @@ h2 {
     }
 
     .ageAbas {
-        font-size: 0.9rem;
-        margin-left: 4px;
-        margin-top: 5px;
+        position: absolute;
+        font-size: 115%;
+        margin-left: 70px;
+        margin-top: 120px;
     }
 
     .devWeb {
-        font-size: 0.9rem;
-        margin-left: 4px;
-        margin-top: 5px;
+        position: absolute;
+        font-size: 115%;
+        margin-left: 125px;
+        margin-top: 97px;
     }
 
 
     .textIntro {
         width: 90%;
         margin-bottom: 5px;
-        margin-top: 10px;
+        margin-top: 200px;
         margin-left: 20px;
     }
 
