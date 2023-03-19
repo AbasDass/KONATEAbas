@@ -609,9 +609,9 @@ h2 {
 
     .nomPrenom {
         position: absolute;
-        font-size: 115%;
+        font-size: 100%;
         margin-left: 4px;
-        margin-top: 109px;
+        margin-top: 111px;
     }
 
     .mail {
@@ -623,16 +623,16 @@ h2 {
 
     .ageAbas {
         position: absolute;
-        font-size: 115%;
+        font-size: 100%;
         margin-left: 70px;
         margin-top: 120px;
     }
 
     .devWeb {
         position: absolute;
-        font-size: 115%;
+        font-size: 100%;
         margin-left: 125px;
-        margin-top: 97px;
+        margin-top: 103px;
     }
 
 
