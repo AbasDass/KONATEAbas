@@ -612,6 +612,8 @@ h2 {
         font-size: 100%;
         margin-left: 4px;
         margin-top: 111px;
+        font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
+        color: rgb(194, 183, 183);
     }
 
     .mail {
@@ -626,6 +628,8 @@ h2 {
         font-size: 100%;
         margin-left: 70px;
         margin-top: 120px;
+        font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
+        color: rgb(194, 183, 183);
     }
 
     .devWeb {
@@ -633,6 +637,8 @@ h2 {
         font-size: 100%;
         margin-left: 125px;
         margin-top: 103px;
+        font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
+        color: rgb(194, 183, 183);
     }
 
 
@@ -641,6 +647,8 @@ h2 {
         margin-bottom: 5px;
         margin-top: 200px;
         margin-left: 20px;
+        color: rgb(185, 185, 185);
+        font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
     }
 
     .container {
@@ -657,6 +665,12 @@ h2 {
 
     .textcv h2 {
         margin-left: 21%;
+    }
+
+    .textProjet {
+        font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
+        font-size: 3.5em;
+        color: rgb(185, 185, 185);
     }
 
     .informatique h2 {
