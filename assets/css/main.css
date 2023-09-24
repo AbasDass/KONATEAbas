@@ -204,7 +204,7 @@ a {
 }
 
 .listInformatique ol li {
-    margin: 9.5px 2px;
+    margin: 9px;
 }
 
 .informatique ol li {
@@ -231,6 +231,7 @@ h2 {
 
 .logoMots li {
     list-style: none;
+    padding-left: 0px;
 }
 
 .projR {
