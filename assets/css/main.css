@@ -26,7 +26,17 @@ body {
 .textProjet {
     font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
     font-size: 3.5em;
+    color: rgb(119, 119, 119);
+}
+
+.textProjetAscc {
+    font-family: kaushan_scriptregular, Haettenschweiler, Arial Narrow Bold, sans-serif;
+    font-size: 0.5em;
     color: rgb(185, 185, 185);
+}
+
+.textGit {
+    font-size: 0.3em;
 }
 
 .textIntro {
@@ -86,11 +96,11 @@ body {
 
 .cardProject {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.carre2 {
-    margin-left: 90px;
+.carre1 {
+   margin-right: 30px;
 }
 
 
