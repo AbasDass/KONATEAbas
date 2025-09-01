@@ -1,239 +1,231 @@
 <!DOCTYPE html>
-<!-- Iphone -->
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Source+Sans+Pro&display=swap" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro&display=swap" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300&family=Montserrat&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro&display=swap" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@100&family=Montserrat&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro&display=swap" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <script src="assets/scriptPortfolio.js" defer></script>
-    <title>KONATE Abas</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>KONATE Abas — Développeur Back-End</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<meta name="description" content="Portfolio de KONATE Abas, Développeur Back-End. Projets, parcours, compétences et contact.">
 </head>
 
-<body>
-    <header class="allLogo">
-        <div class="curriculum">
-            <a href="assets/images/CV_Développeur KONATE Abas.pdf" target="_blank">
-                <img class="LCV" src="assets/images/icons8-cv-48.png" alt="direction vers le cv sur la même page">
-            </a>
-        </div>
-        <div class="linkedin">
-            <a href="https://www.linkedin.com/in/abas-konat%C3%A9-2aa49a223/?originalSubdomain=fr" target="_blank">
-                <img class="LLK" src="assets/images/icons8-linkedin-entouré-48.png" alt="icon linkedin">
-            </a>
-        </div>
-        <div class="github">
-            <a href="https://github.com/AbasDass" target="_blank">
-                <img class="LG" src="assets/images/icons8-github-48 (2).png" alt="icon github">
-            </a>
-        </div>
-    </header>
+<body class="bg-white text-gray-900 antialiased">
+	<!-- Barre de navigation -->
+	<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-200">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex items-center justify-between h-16">
+				<nav class="flex items-center gap-6 text-sm">
+					<a href="#accueil" class="text-gray-700 hover:text-blue-600">Accueil</a>
+					<a href="#projets" class="text-gray-700 hover:text-blue-600">Projets</a>
+					<a href="#a-propos" class="text-gray-700 hover:text-blue-600">À propos</a>
+					<a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+				</nav>
+				<div class="flex items-center gap-3">
+					<a href="assets/images/Abas_Konate_CV_Developpeur_Backend_PHP_Laravel_2025.pdf" target="_blank" class="inline-flex items-center gap-2 rounded-md border border-gray-300 px-3 py-1.5 text-sm hover:border-blue-500 hover:text-blue-600">
+						<img src="assets/images/icons8-cv-48.png" alt="CV" class="h-5 w-5">
+						<span>Télécharger CV</span>
+					</a>
+					<a href="https://www.linkedin.com/in/abas-konat%C3%A9-2aa49a223/?originalSubdomain=fr" target="_blank" aria-label="LinkedIn" class="p-2 rounded hover:bg-gray-100">
+						<img src="assets/images/icons8-linkedin-entouré-48.png" alt="LinkedIn" class="h-6 w-6">
+					</a>
+					<a href="https://github.com/AbasDass" target="_blank" aria-label="GitHub" class="p-2 rounded hover:bg-gray-100">
+						<img src="assets/images/icons8-github-48 (2).png" alt="GitHub" class="h-6 w-6">
+					</a>
+				</div>
+			</div>
+		</div>
+	</header>
 
-    <section class="presentation">
-            <div class="imgAbas">
-                <img src="assets/images/photocvabas.png" alt="Photo du de la personne du cv">
-            </div>
+	<!-- Accueil -->
+	<section id="accueil" class="relative">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+			<div class="grid md:grid-cols-2 items-center gap-10">
+				<div>
+					<!-- Remplace juste la valeur de data-birthdate par ta date de naissance (YYYY-MM-DD) -->
+                    <p id="age-pill"
+                    data-birthdate="1997-03-15"
+                    class="inline-block rounded-full bg-blue-50 text-blue-700 px-3 py-1 text-xs font-medium">
+                    <!-- Contenu initial, remplacé par JS -->
+                    00 ans
+                    </p>
+					<h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
+                        KONATE <span class="text-gray-500">Abas</span>
+                      </h1>
+                      <p class="mt-3 text-xl text-gray-700">
+                        Créateur d’applications web  <span class="font-semibold text-blue-600">Laravel freelance</span>
+                      </p>
+					<div class="mt-6 flex flex-wrap items-center gap-3">
+						<a href="mailto:konate.abas@hotmail.fr" class="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+							<span>Me contacter</span>
+						</a>
+						<a href="#projets" class="inline-flex items-center gap-2 rounded-md border border-gray-300 px-4 py-2 text-gray-800 hover:border-blue-500 hover:text-blue-600">Voir mes projets</a>
+					</div>
+				</div>
+				<div class="order-first md:order-none">
+					<img src="assets/images/photocvabas.png" alt="Photo de KONATE Abas" class="w-36 h-36 sm:w-44 sm:h-44 object-cover rounded-2xl shadow-xl mx-auto">
+				</div>
+			</div>
+		</div>
+	</section>
 
-            <div class="nomPrenom">
-                <p class="nomPrenom">
-                    KONATE<br>Abas
-                </p>
-            </div>
-
-            <div class="ageAbas">
-                <p class="ageAbas">26 ans</p>
-            </div>
-            <div class="devWeb">
-                <p class="devWeb">
-                    Développeur<br>Back-End<br>Craftsmanship TDD
-                </p>
-            </div>
-            <div class="mail">
-                <p class="mail">
-                    <a href="mailto:konate.abas@hotmail.fr">konate.abas@hotmail.fr</a>
-                </p>
-            </div>
-    </section>
-
-    <!-- SECTION MID PAGE -->
-    <section class="container">
-        <div class="textIntro">
-            <p>
-                <!-- Reconversion:
-                Actuellement en formation à l'école<br>du numérique La Manu<br>en développement web et application web
-                mobile
-                le choix entre le Front End et le Back End m'est encore perplexe<br>je suis à la recherche d'une
-                entreprise pouvant m'accueillir pour approfondir mes<br>
-                compétences et expériences professionnelles. -->
-
-                Récemment diplômé à l'école du numérique
-                "La Manu" en développement web et web mobile, je suis à la recherche d'une
-                entreprise pouvant m'accueillir en tant qu'alternant, afin de monter en
-                compétences et acquérir de l'expérience professionnelle. Provisoirement je suis
-                en veille technologique sur Python Django.
-            </p>
-        </div>
-        <div class="textProjet">
-            <p>
-                PROJET EN COURS 
-            </p>
-            <p class="textProjetAscc">
-                Avec une technologie qui me passionne depuis mes débuts<br>
-                je suis en charge de l'implémentation et la maintenabilité d'un projet pour un club de Basket<br>
-                avec le langage PYTHON et son framewok DJANGO
-            </p>
-            <p  class="textGit">
-                Mes projets sur GitHub: <a href="https://github.com/AbasDass" target="_blank">https://github.com/AbasDass</a>
-            </p>
-        </div>
-
-        <div class="cardProject">
-            <div class="carre1">
-                <!-- <a href="https://abasdass.github.io/Projet-All-show-La-Manu/index.html" target="_blank"> -->
-                    <img class="projet1" src="assets/images/photo portfolio/Capture d’écran 2023-09-25 013153.png" alt="Image de projet">
-                <!-- </a> -->
-            </div>
-
-            <div class="carre1">
-                <!-- <a href="https://abasdass.github.io/E-liquideShop/" target="_blank"> -->
-                    <img class="projet2" src="assets/images/photo portfolio/Capture d’écran 2023-09-25 013334.png" alt="Image de projet">
-                <!-- </a> -->
-            </div>
-            <div class="carre1">
-                <!-- <a href="https://abasdass.github.io/E-liquideShop/" target="_blank"> -->
-                    <img class="projet2" src="assets/images/photo portfolio/Capture d’écran 2023-09-25 013424.png" alt="Image de projet">
-                <!-- </a> -->
-            </div>
-            <div class="carre1">
-                <!-- <a href="https://abasdass.github.io/E-liquideShop/" target="_blank"> -->
-                    <img class="projet2" src="assets/images/photo portfolio/Capture d’écran 2023-09-25 013542.png" alt="Image de projet">
-                <!-- </a> -->
-            </div>
-        </div>
-
-    </section>
-
-
-    <!-- PARTIE DE RECONVERTION ET EXPERIENCE -->
-    <div class="barreSuite">
-
-    </div>
-    <div class="barreSuite2">
-
-    </div>
-    <section class="eP">
-        <div class="textcv">
-            <h2>
-                DIPLÔMES ET FORMATIONS
-            </h2>
-            <p class="textEp">
-                Développement C# .NET<br>De mai 2023 à juillet 2023<br>
-                Campus de Compiègne La Manu<br>
-                <br>
-                Ecole du numérique La Manu <b>(Bac+2)</b><br>développement web et web mobile<br>2022 - 2023<br>
-                <span>Campus de Compiègne La Manu</span><br>
-                <br>
-                Formation à l'afpa Back End (Symfony)<br>2022<br>
-                <span>Centre de l'Afpa de Beauvais</span><br>
-                <br>
-            </p>
-        </div>
-        <div class="informatique">
-            <h2>
-                INFORMATIQUE
-            </h2>
-            <div class="bigDiv">
-                <div class="bigIcon">
-                    <ol class="logoInfo">
-                        <li style="list-style-image: url(assets/images/icons8-html-5-28.png);"></li>
-                        <li style="list-style-image: url(assets/images/icons8-css3-28.png);"></li>
-                        <li style="list-style-image: url(assets/images/icons8-bootstrap-28.png);"></li>
-                        <li style="list-style-image: url(assets/images/icons8-javascript-28.png);"></li>
-                        <li style="list-style-image: url(assets/images/icons8-php-28.png);"></li>
-                        <li style="list-style-image: url(assets/images/icons8-figma-28.png);"></li>
-                        <li style="list-style-image: url(assets/images/icons8-adobe-photoshop-28.png);"></li>
-                        <li style="list-style-image: url(assets/images/icons8-adobe-premiere-pro-28.png);"></li>
-                        <li style="list-style-image: url(assets/images/icons8-fl-studio-28.png);"></li>
-                    </ol>
+	<!-- Projets -->
+	<section id="projets" class="bg-gray-50 border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+          <div class="flex items-end justify-between gap-4">
+            <h2 class="text-2xl sm:text-3xl font-bold">Projets</h2>
+            <a href="https://github.com/AbasDass" target="_blank"
+               class="text-sm text-blue-600 hover:text-blue-700">Mes projets sur GitHub</a>
+          </div>
+      
+          <!-- Projet en cours -->
+          <p class="mt-3 text-gray-700">
+            <span class="font-semibold text-blue-600">Projets réalisés</span> — Exemples de missions menées avec succès,
+            dont une <span class="font-semibold">boutique en ligne</span> pour un créateur TikTok (20k abonnés)
+            et des <span class="font-semibold">applications web modernes.</span>
+          </p>
+          
+      
+          <div class="mt-10 grid sm:grid-cols-2 gap-6">
+            <!-- Projet vitrine (formation) -->
+            <article class="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+                <div class="aspect-[16/10] overflow-hidden bg-gray-100">
+                  <img src="assets/images/NLTSCAPT.PNG"
+                       alt="Projet vitrine"
+                       class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
                 </div>
-
-                <div class="listInformatique">
-                    <ol class="logoMots">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>BOOTSTRAP</li>
-                        <li>JAVASCRIPT</li>
-                        <li>PHP</li>
-                        <li>FIGMA</li>
-                        <li>PHOTOSHOP</li>
-                        <li>PREMIERE PRO</li>
-                        <li>FL STUDIO</li>
-                    </ol>
+                <div class="p-5">
+                  <h3 class="font-semibold">NBA LIVE TRACKING SCORE</h3>
+                  <p class="mt-2 text-sm text-gray-600">
+                    Développement d’un site autour des <span class="font-semibold">statistiques NBA</span>,
+                    explorant les performances des joueurs et leur <span class="font-semibold">causalité avec la vie personnelle</span>.
+                    Projet mêlant data, visualisation et analyse en temps réel.
+                  </p>
+                  
+                  <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                    <span class="rounded-full bg-gray-100 px-3 py-1">LARAVEL</span>
+                    <span class="rounded-full bg-gray-100 px-3 py-1">API</span>
+                  </div>
                 </div>
-            </div>
+              </article>
+            <!-- Projet réel : e-commerce -->
+            <article class="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+              <div class="aspect-[16/10] overflow-hidden bg-gray-100">
+                <img src="assets/images/luxurycapt.PNG"
+                     alt="Projet e-commerce Laravel"
+                     class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
+              </div>
+              <div class="p-5">
+                <h3 class="font-semibold">Luxury&Co</h3>
+                <p class="mt-2 text-sm text-gray-600">
+                  Développement d’un e-commerce complet avec gestion du panier, paiement Stripe et back-office.
+                  Projet livré pour un créateur TikTok suivi par <span class="font-semibold">20 000 abonnés</span>.
+                </p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="rounded-full bg-gray-100 px-3 py-1">Laravel</span>
+                  <span class="rounded-full bg-gray-100 px-3 py-1">Stripe</span>
+                  <span class="rounded-full bg-gray-100 px-3 py-1">Tailwind</span>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
-        <div class=" expPro">
-            <h2>
-                EXPÉRIENCES PROFESSIONNELLES
-            </h2>
-            <p class="textEp">
-                Projet de développement | Club Basket Depuis mars 2023<br>
-                ASCC Basket Compiègne<br>
-                <br>
-                Stagiaire - développement web De mai 2022 à juin 2022<br>
-                INSY2S - Lille<br>
-                <br>
-                Assistant d'éducation De 2020 à 2021<br>
-                Collège François Villon Cambrai, France<br>
-                <br>
-                Intervenant Sportive De 2019 à 2020<br>
-                Ecoles de la commune<br>Margny-Lès-Compiègne<br>
+      </section>
+      
+
+	<!-- À propos -->
+	<section id="a-propos">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+			<h2 class="text-2xl font-bold tracking-tight">À propos</h2>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+                Je suis <span class="font-semibold">créateur d’applications web avec Laravel</span>,
+                spécialisé en <span class="font-semibold">développement Back-End PHP</span>.
+                J’accompagne les créateurs, PME et startups dans la conception de
+                <span class="font-semibold">sites modernes, e-commerce, APIs et outils métiers</span>.
             </p>
-        </div>
-    </section>
-    <footer class="container2">
-        <div class="textFront">
-            <h3 class="titreSp">Front End</h3>
-            <div class="styleList">
-                <p>HTML</p>
-                <p>CSS</p>
-                <p>BOOTSTRAP</p>
-                <p>FIGMA</p>
-                <p>JAVASCRIPT</p>
-            </div>
-        </div>
+            <p class="mt-3 text-gray-600 leading-relaxed">
+                Mon objectif : créer des solutions <span class="font-semibold">rapides, sécurisées et faciles à utiliser</span>,
+                qui apportent une vraie valeur aux utilisateurs. Je peux également <span class="font-semibold">intervenir rapidement pour corriger des bugs ou assurer la maintenance</span>,
+                afin de garantir la continuité de vos projets.
+            </p>
+            <p class="mt-3 text-gray-600 leading-relaxed">
+                J’ai notamment développé une boutique
+                en ligne pour un créateur TikTok suivi par <span class="font-semibold">20 000 abonnés</span>.
+            </p>
+		</div>
+	</section>
 
-        <div class="textBack">
-            <h3 class="titreSp">Back End</h3>
-            <div class="styleList">
-                <p>Merise</p>
-                <p>MySQL</p>
-                <p>SQL</p>
-                <p>PHP</p>
-                <p>SYMFONY</p>
-                <p>PYTHON</p>
-                <p>DJANGO</p>
-                <p>C#</p>
-            </div>
+	<!-- Contact -->
+	<section id="contact" class="bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+          <h2 class="text-2xl sm:text-3xl font-bold">Contact</h2>
+          <p class="mt-4 text-gray-700">
+            Disponible pour vos projets web (Laravel, sites, applications, e-commerce).
+            N’hésitez pas à me contacter, je réponds rapidement.
+          </p>
+          <div class="mt-6 flex flex-wrap items-center gap-4">
+            <!-- Email -->
+            <a href="mailto:konate.abas@hotmail.fr"
+               class="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+              📧 konate.abas@hotmail.fr
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/abas-konat%C3%A9-2aa49a223/?originalSubdomain=fr"
+               target="_blank"
+               class="inline-flex items-center gap-2 rounded-md border border-gray-300 px-4 py-2 text-gray-800 hover:border-blue-500 hover:text-blue-600">
+              <img src="assets/images/icons8-linkedin-entouré-48.png" alt="LinkedIn" class="h-5 w-5">LinkedIn
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com/AbasDass"
+               target="_blank"
+               class="inline-flex items-center gap-2 rounded-md border border-gray-300 px-4 py-2 text-gray-800 hover:border-blue-500 hover:text-blue-600">
+              <img src="assets/images/icons8-github-48 (2).png" alt="GitHub" class="h-5 w-5">GitHub
+            </a>
+            <!-- CV -->
+            <a href="assets/images/Abas_Konate_CV_Developpeur_Backend_PHP_Laravel_2025.pdf"
+               target="_blank"
+               class="inline-flex items-center gap-2 rounded-md border border-gray-300 px-4 py-2 text-gray-800 hover:border-blue-500 hover:text-blue-600">
+              <img src="assets/images/icons8-cv-48.png" alt="CV" class="h-5 w-5">CV (PDF)
+            </a>
+          </div>
         </div>
-    </footer>
+      </section>
+      
 
+	<footer class="border-t border-gray-200">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+			<p>© <span id="year"></span> KONATE Abas. Tous droits réservés.</p>
+			<p><span class="text-gray-700">Stack:</span> HTML, Tailwind CSS</p>
+		</div>
+	</footer>
+
+	<script>
+		document.getElementById('year').textContent = new Date().getFullYear();
+
+        (function () {
+        const el = document.getElementById('age-pill');
+        if (!el) return;
+
+        const iso = el.dataset.birthdate; // ex: "1997-03-15"
+        if (!iso) return;
+
+        const [y, m, d] = iso.split('-').map(Number);
+        const birth = new Date(y, m - 1, d);
+
+        const today = new Date();
+        let age = today.getFullYear() - birth.getFullYear();
+
+        // Si l'anniversaire n'est pas encore passé cette année, on retire 1
+        const hasHadBirthdayThisYear =
+            today.getMonth() > birth.getMonth() ||
+            (today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
+        if (!hasHadBirthdayThisYear) age--;
+
+        el.textContent = age + ' ans';
+        // Bonus : un title sympa au survol
+        const dd = String(d).padStart(2, '0');
+        const mm = String(m).padStart(2, '0');
+        el.title = `Né(e) le ${dd}/${mm}/${y}`;
+        })();
+	</script>
 </body>
 </html>
