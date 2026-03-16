@@ -4,224 +4,1344 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>KONATE Abas — Développeur Back-End</title>
-	<script src="https://cdn.tailwindcss.com"></script>
+	<title>KONATE Abas</title>
+	<link rel="icon" type="image/png" href="assets/images/icons8-idée-16.png">
 	<meta name="description" content="Portfolio de KONATE Abas, Développeur Back-End. Projets, parcours, compétences et contact.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<style>
+		/* ──────────────── CUSTOM PROPERTIES ──────────────── */
+		:root {
+			--bg:        #090909;
+			--bg-raised: #111111;
+			--bg-card:   #141414;
+			--accent:    #D4A853;
+			--accent-dim:#9E7B3A;
+			--text:      #E8E2D6;
+			--text-muted:#8A8278;
+			--text-dim:  #5A5550;
+			--border:    #2A2724;
+			--serif:     'Playfair Display', Georgia, 'Times New Roman', serif;
+			--sans:      'DM Sans', system-ui, -apple-system, sans-serif;
+		}
+
+		/* ──────────────── RESET & BASE ──────────────── */
+		*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+		html {
+			scroll-behavior: smooth;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		body {
+			background: var(--bg);
+			color: var(--text);
+			font-family: var(--sans);
+			font-weight: 300;
+			line-height: 1.7;
+			overflow-x: hidden;
+		}
+
+		/* Grain texture overlay */
+		body::after {
+			content: '';
+			position: fixed;
+			inset: 0;
+			z-index: 9999;
+			pointer-events: none;
+			opacity: 0.025;
+			background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+			background-repeat: repeat;
+			background-size: 256px 256px;
+		}
+
+		a { color: inherit; text-decoration: none; }
+		img { display: block; max-width: 100%; }
+
+		/* ──────────────── LAYOUT ──────────────── */
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 clamp(1.25rem, 4vw, 3rem);
+		}
+
+		/* ──────────────── NAVIGATION ──────────────── */
+		.nav {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 100;
+			padding: 1.25rem 0;
+			transition: background 0.4s ease, padding 0.4s ease;
+		}
+
+		.nav.scrolled {
+			background: rgba(9, 9, 9, 0.92);
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			padding: 0.75rem 0;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.nav__inner {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.nav__logo {
+			font-family: var(--serif);
+			font-size: 1.125rem;
+			font-weight: 700;
+			letter-spacing: 0.04em;
+			color: var(--text);
+		}
+
+		.nav__logo span {
+			color: var(--accent);
+		}
+
+		.nav__links {
+			display: flex;
+			align-items: center;
+			gap: 2rem;
+			list-style: none;
+		}
+
+		.nav__link {
+			font-size: 0.8125rem;
+			font-weight: 400;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--text-muted);
+			transition: color 0.3s ease;
+			position: relative;
+		}
+
+		.nav__link::after {
+			content: '';
+			position: absolute;
+			bottom: -4px;
+			left: 0;
+			width: 0;
+			height: 1px;
+			background: var(--accent);
+			transition: width 0.3s ease;
+		}
+
+		.nav__link:hover {
+			color: var(--text);
+		}
+
+		.nav__link:hover::after {
+			width: 100%;
+		}
+
+		.nav__socials {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.nav__social {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			border: 1px solid var(--border);
+			color: var(--text-muted);
+			transition: all 0.3s ease;
+		}
+
+		.nav__social:hover {
+			border-color: var(--accent);
+			color: var(--accent);
+			transform: translateY(-2px);
+		}
+
+		.nav__social svg {
+			width: 16px;
+			height: 16px;
+		}
+
+		/* Mobile nav toggle */
+		.nav__toggle {
+			display: none;
+			background: none;
+			border: none;
+			color: var(--text);
+			cursor: pointer;
+			padding: 0.5rem;
+		}
+
+		.nav__toggle span {
+			display: block;
+			width: 22px;
+			height: 1.5px;
+			background: var(--text);
+			margin: 5px 0;
+			transition: all 0.3s ease;
+		}
+
+		/* ──────────────── HERO ──────────────── */
+		.hero {
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			position: relative;
+			overflow: hidden;
+		}
+
+		/* Ambient glow behind photo */
+		.hero::before {
+			content: '';
+			position: absolute;
+			top: 30%;
+			right: 10%;
+			width: 500px;
+			height: 500px;
+			background: radial-gradient(circle, rgba(212, 168, 83, 0.06) 0%, transparent 70%);
+			border-radius: 50%;
+			pointer-events: none;
+		}
+
+		.hero__grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 4rem;
+			align-items: center;
+		}
+
+		.hero__label {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			font-size: 0.75rem;
+			font-weight: 500;
+			letter-spacing: 0.15em;
+			text-transform: uppercase;
+			color: var(--accent);
+			margin-bottom: 1.5rem;
+		}
+
+		.hero__label::before {
+			content: '';
+			display: block;
+			width: 28px;
+			height: 1px;
+			background: var(--accent);
+		}
+
+		.hero__name {
+			font-family: var(--serif);
+			font-size: clamp(3rem, 6vw, 5.5rem);
+			font-weight: 900;
+			line-height: 1.05;
+			letter-spacing: -0.02em;
+			color: var(--text);
+		}
+
+		.hero__name span {
+			display: block;
+			color: var(--text-muted);
+			font-weight: 400;
+			font-style: italic;
+		}
+
+		.hero__subtitle {
+			margin-top: 1.5rem;
+			font-size: 1.125rem;
+			color: var(--text-muted);
+			max-width: 420px;
+		}
+
+		.hero__subtitle strong {
+			color: var(--accent);
+			font-weight: 500;
+		}
+
+		.hero__actions {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			margin-top: 2.5rem;
+		}
+
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 0.875rem 1.75rem;
+			font-family: var(--sans);
+			font-size: 0.8125rem;
+			font-weight: 500;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			border: none;
+			cursor: pointer;
+			transition: all 0.35s ease;
+		}
+
+		.btn--primary {
+			background: var(--accent);
+			color: var(--bg);
+		}
+
+		.btn--primary:hover {
+			background: #E0B565;
+			transform: translateY(-2px);
+			box-shadow: 0 8px 30px rgba(212, 168, 83, 0.25);
+		}
+
+		.btn--outline {
+			background: transparent;
+			color: var(--text);
+			border: 1px solid var(--border);
+		}
+
+		.btn--outline:hover {
+			border-color: var(--accent-dim);
+			color: var(--accent);
+			transform: translateY(-2px);
+		}
+
+		.hero__photo-wrapper {
+			position: relative;
+			display: flex;
+			justify-content: center;
+		}
+
+		.hero__photo-frame {
+			position: relative;
+			width: 340px;
+			height: 420px;
+		}
+
+		.hero__photo-frame::before {
+			content: '';
+			position: absolute;
+			inset: -12px;
+			border: 1px solid var(--border);
+			z-index: -1;
+		}
+
+		.hero__photo-frame::after {
+			content: '';
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			right: -20px;
+			bottom: -20px;
+			border: 1px solid var(--accent-dim);
+			opacity: 0.3;
+			z-index: -1;
+		}
+
+		.hero__photo {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			filter: grayscale(20%) contrast(1.05);
+			transition: filter 0.5s ease;
+		}
+
+		.hero__photo:hover {
+			filter: grayscale(0%) contrast(1.1);
+		}
+
+		.hero__scroll {
+			position: absolute;
+			bottom: 2.5rem;
+			left: 50%;
+			transform: translateX(-50%);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5rem;
+			color: var(--text-dim);
+			font-size: 0.6875rem;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			z-index: 0;
+		}
+
+		@media (max-height: 860px) {
+			.hero__scroll { display: none; }
+		}
+
+		.hero__scroll-line {
+			width: 1px;
+			height: 48px;
+			background: linear-gradient(to bottom, var(--accent-dim), transparent);
+			animation: scrollPulse 2s ease-in-out infinite;
+		}
+
+		@keyframes scrollPulse {
+			0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+			50% { opacity: 1; transform: scaleY(1); }
+		}
+
+		/* ──────────────── SECTION COMMON ──────────────── */
+		.section {
+			padding: clamp(5rem, 10vw, 8rem) 0;
+			position: relative;
+		}
+
+		.section__header {
+			display: flex;
+			align-items: baseline;
+			gap: 1.5rem;
+			margin-bottom: 3rem;
+		}
+
+		.section__number {
+			font-family: var(--serif);
+			font-size: 0.875rem;
+			color: var(--accent);
+			font-style: italic;
+		}
+
+		.section__title {
+			font-family: var(--serif);
+			font-size: clamp(2rem, 4vw, 3rem);
+			font-weight: 700;
+			letter-spacing: -0.01em;
+		}
+
+		.section__line {
+			flex: 1;
+			height: 1px;
+			background: var(--border);
+		}
+
+		/* ──────────────── PROJECTS ──────────────── */
+		.projects {
+			background: var(--bg-raised);
+			border-top: 1px solid var(--border);
+			border-bottom: 1px solid var(--border);
+		}
+
+		.projects__intro {
+			color: var(--text-muted);
+			font-size: 1.0625rem;
+			max-width: 600px;
+			margin-bottom: 3.5rem;
+		}
+
+		.projects__intro strong {
+			color: var(--accent);
+			font-weight: 500;
+		}
+
+		.projects__grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 2rem;
+		}
+
+		.project-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border);
+			overflow: hidden;
+			transition: all 0.4s ease;
+			position: relative;
+		}
+
+		.project-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 2px;
+			background: linear-gradient(90deg, var(--accent), transparent);
+			opacity: 0;
+			transition: opacity 0.4s ease;
+		}
+
+		.project-card:hover {
+			transform: translateY(-6px);
+			border-color: var(--accent-dim);
+			box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+		}
+
+		.project-card:hover::before {
+			opacity: 1;
+		}
+
+		.project-card__image {
+			aspect-ratio: 16 / 10;
+			overflow: hidden;
+			background: var(--bg);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.project-card__image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.6s ease;
+		}
+
+		.project-card:hover .project-card__image img {
+			transform: scale(1.06);
+		}
+
+		.project-card__body {
+			padding: 1.75rem;
+		}
+
+		.project-card__title {
+			font-family: var(--serif);
+			font-size: 1.25rem;
+			font-weight: 700;
+			margin-bottom: 0.75rem;
+		}
+
+		.project-card__desc {
+			font-size: 0.9rem;
+			color: var(--text-muted);
+			line-height: 1.65;
+		}
+
+		.project-card__desc strong {
+			color: var(--text);
+			font-weight: 500;
+		}
+
+		.project-card__tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+			margin-top: 1.25rem;
+		}
+
+		.tag {
+			padding: 0.3rem 0.85rem;
+			font-size: 0.6875rem;
+			font-weight: 500;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			border: 1px solid var(--border);
+			color: var(--text-muted);
+			transition: all 0.3s ease;
+		}
+
+		.project-card:hover .tag {
+			border-color: var(--accent-dim);
+			color: var(--accent);
+		}
+
+		/* ──────────────── GALLERY GRID ──────────────── */
+		.project-card__gallery {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 3px;
+			background: var(--bg);
+		}
+
+		.gallery-thumb {
+			aspect-ratio: 16 / 10;
+			overflow: hidden;
+			cursor: pointer;
+			position: relative;
+		}
+
+		.gallery-thumb img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.5s ease, filter 0.4s ease;
+		}
+
+		.gallery-thumb::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.15);
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
+		.gallery-thumb:hover::after {
+			opacity: 1;
+		}
+
+		.gallery-thumb:hover img {
+			transform: scale(1.08);
+		}
+
+		/* Zoom icon hint */
+		.gallery-thumb::before {
+			content: '';
+			position: absolute;
+			bottom: 8px;
+			right: 8px;
+			width: 24px;
+			height: 24px;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E8E2D6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cpolyline points='9 21 3 21 3 15'/%3E%3Cline x1='21' y1='3' x2='14' y2='10'/%3E%3Cline x1='3' y1='21' x2='10' y2='14'/%3E%3C/svg%3E");
+			background-size: contain;
+			z-index: 2;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+			filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6));
+		}
+
+		.gallery-thumb:hover::before {
+			opacity: 0.8;
+		}
+
+		/* ──────────────── LIGHTBOX ──────────────── */
+		.lightbox {
+			position: fixed;
+			inset: 0;
+			z-index: 10000;
+			background: rgba(5, 5, 5, 0.95);
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.35s ease, visibility 0.35s ease;
+			cursor: zoom-out;
+		}
+
+		.lightbox.active {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.lightbox__img {
+			max-width: 90vw;
+			max-height: 88vh;
+			object-fit: contain;
+			border: 1px solid var(--border);
+			transform: scale(0.92);
+			opacity: 0;
+			transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+			            opacity 0.4s ease;
+		}
+
+		.lightbox.active .lightbox__img {
+			transform: scale(1);
+			opacity: 1;
+		}
+
+		.lightbox__close {
+			position: absolute;
+			top: 1.5rem;
+			right: 1.5rem;
+			width: 44px;
+			height: 44px;
+			border: 1px solid var(--border);
+			background: rgba(20, 20, 20, 0.8);
+			color: var(--text);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			transition: border-color 0.3s ease;
+			z-index: 2;
+		}
+
+		.lightbox__close:hover {
+			border-color: var(--accent);
+		}
+
+		.lightbox__nav {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 48px;
+			height: 48px;
+			border: 1px solid var(--border);
+			background: rgba(20, 20, 20, 0.8);
+			color: var(--text);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			transition: border-color 0.3s ease, color 0.3s ease;
+			z-index: 2;
+		}
+
+		.lightbox__nav:hover {
+			border-color: var(--accent);
+			color: var(--accent);
+		}
+
+		.lightbox__nav--prev { left: 1.5rem; }
+		.lightbox__nav--next { right: 1.5rem; }
+
+		.lightbox__counter {
+			position: absolute;
+			bottom: 1.5rem;
+			left: 50%;
+			transform: translateX(-50%);
+			font-size: 0.75rem;
+			color: var(--text-dim);
+			letter-spacing: 0.15em;
+		}
+
+		@media (max-width: 640px) {
+			.lightbox__nav { display: none; }
+		}
+
+		.projects__github {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			margin-top: 3rem;
+			font-size: 0.875rem;
+			color: var(--text-muted);
+			letter-spacing: 0.04em;
+			transition: color 0.3s ease;
+		}
+
+		.projects__github:hover {
+			color: var(--accent);
+		}
+
+		.projects__github svg {
+			width: 18px;
+			height: 18px;
+			transition: transform 0.3s ease;
+		}
+
+		.projects__github:hover svg {
+			transform: translateX(4px);
+		}
+
+		/* ──────────────── ABOUT ──────────────── */
+		.about__content {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 4rem;
+		}
+
+		.about__text {
+			max-width: 540px;
+		}
+
+		.about__text p {
+			color: var(--text-muted);
+			font-size: 1.0625rem;
+			margin-bottom: 1.25rem;
+			line-height: 1.8;
+		}
+
+		.about__text strong {
+			color: var(--text);
+			font-weight: 500;
+		}
+
+		.about__highlight {
+			padding: 2rem 2.5rem;
+			border-left: 2px solid var(--accent);
+			background: var(--bg-raised);
+			margin-top: 2rem;
+		}
+
+		.about__highlight p {
+			font-family: var(--serif);
+			font-style: italic;
+			font-size: 1.125rem;
+			color: var(--text);
+			line-height: 1.7;
+			margin: 0;
+		}
+
+		.about__stats {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 2.5rem;
+		}
+
+		.stat {
+			position: relative;
+			padding-left: 1.5rem;
+			border-left: 1px solid var(--border);
+		}
+
+		.stat__number {
+			font-family: var(--serif);
+			font-size: 2.5rem;
+			font-weight: 700;
+			color: var(--accent);
+			line-height: 1;
+		}
+
+		.stat__label {
+			font-size: 0.875rem;
+			color: var(--text-muted);
+			margin-top: 0.5rem;
+			letter-spacing: 0.03em;
+		}
+
+		/* ──────────────── CONTACT ──────────────── */
+		.contact {
+			background: var(--bg-raised);
+			border-top: 1px solid var(--border);
+		}
+
+		.contact__inner {
+			text-align: center;
+			max-width: 640px;
+			margin: 0 auto;
+		}
+
+		.contact__subtitle {
+			color: var(--text-muted);
+			font-size: 1.0625rem;
+			margin-bottom: 2.5rem;
+		}
+
+		.contact__links {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 1rem;
+		}
+
+		.contact-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.625rem;
+			padding: 0.875rem 1.5rem;
+			border: 1px solid var(--border);
+			font-size: 0.875rem;
+			font-weight: 400;
+			color: var(--text-muted);
+			letter-spacing: 0.03em;
+			transition: all 0.35s ease;
+		}
+
+		.contact-link:hover {
+			border-color: var(--accent);
+			color: var(--accent);
+			transform: translateY(-3px);
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+		}
+
+		.contact-link--primary {
+			background: var(--accent);
+			border-color: var(--accent);
+			color: var(--bg);
+			font-weight: 500;
+		}
+
+		.contact-link--primary:hover {
+			background: #E0B565;
+			border-color: #E0B565;
+			color: var(--bg);
+		}
+
+		.contact-link svg {
+			width: 18px;
+			height: 18px;
+			flex-shrink: 0;
+		}
+
+		/* ──────────────── FOOTER ──────────────── */
+		.footer {
+			border-top: 1px solid var(--border);
+			padding: 2rem 0;
+		}
+
+		.footer__inner {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 0.8125rem;
+			color: var(--text-dim);
+		}
+
+		.footer__back-to-top {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			color: var(--text-dim);
+			font-size: 0.75rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			transition: color 0.3s ease;
+		}
+
+		.footer__back-to-top:hover {
+			color: var(--accent);
+		}
+
+		/* ──────────────── SCROLL REVEAL ──────────────── */
+		.reveal {
+			opacity: 0;
+			transform: translateY(32px);
+			transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+			            transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		}
+
+		.reveal.visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.reveal-delay-1 { transition-delay: 0.1s; }
+		.reveal-delay-2 { transition-delay: 0.2s; }
+		.reveal-delay-3 { transition-delay: 0.3s; }
+		.reveal-delay-4 { transition-delay: 0.4s; }
+
+		/* Hero-specific stagger */
+		.hero .reveal { transform: translateY(24px); }
+
+		/* ──────────────── RESPONSIVE ──────────────── */
+		@media (max-width: 900px) {
+			.hero__grid {
+				grid-template-columns: 1fr;
+				text-align: center;
+			}
+
+			.hero__photo-wrapper { order: -1; }
+
+			.hero__photo-frame {
+				width: 240px;
+				height: 300px;
+				margin: 0 auto;
+			}
+
+			.hero__label { justify-content: center; }
+
+			.hero__subtitle { margin-left: auto; margin-right: auto; }
+
+			.hero__actions { justify-content: center; }
+
+			.projects__grid {
+				grid-template-columns: 1fr;
+			}
+
+			.about__content {
+				grid-template-columns: 1fr;
+				gap: 2.5rem;
+			}
+
+			.about__stats {
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: 2rem;
+			}
+
+			.stat { min-width: 140px; }
+		}
+
+		@media (max-width: 640px) {
+			.nav__links { display: none; }
+			.nav__toggle { display: block; }
+
+			.nav__links.open {
+				display: flex;
+				flex-direction: column;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(9, 9, 9, 0.97);
+				backdrop-filter: blur(20px);
+				justify-content: center;
+				align-items: center;
+				gap: 2.5rem;
+				z-index: 200;
+			}
+
+			.nav__links.open .nav__link {
+				font-size: 1.25rem;
+			}
+
+			.hero__name {
+				font-size: 2.5rem;
+			}
+
+			.hero__actions {
+				flex-direction: column;
+				gap: 0.75rem;
+			}
+
+			.btn { width: 100%; justify-content: center; }
+
+			.contact__links {
+				flex-direction: column;
+			}
+
+			.contact-link { justify-content: center; }
+
+			.footer__inner {
+				flex-direction: column;
+				gap: 1rem;
+				text-align: center;
+			}
+		}
+
+		/* ──────────────── SELECTION ──────────────── */
+		::selection {
+			background: rgba(212, 168, 83, 0.25);
+			color: var(--text);
+		}
+
+		/* Smooth scrollbar */
+		::-webkit-scrollbar { width: 6px; }
+		::-webkit-scrollbar-track { background: var(--bg); }
+		::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+		::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
+	</style>
 </head>
 
-<body class="bg-white text-gray-900 antialiased">
-	<!-- Barre de navigation -->
-	<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-200">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="flex items-center justify-between h-16">
-				<nav class="flex items-center gap-6 text-sm">
-					<a href="#accueil" class="text-gray-700 hover:text-blue-600">Accueil</a>
-					<a href="#projets" class="text-gray-700 hover:text-blue-600">Projets</a>
-					<a href="#a-propos" class="text-gray-700 hover:text-blue-600">À propos</a>
-					<a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
-				</nav>
-				<div class="flex items-center gap-3">
-					<a href="https://www.linkedin.com/in/abas-konat%C3%A9-2aa49a223/?originalSubdomain=fr" target="_blank" aria-label="LinkedIn" class="p-2 rounded hover:bg-gray-100">
-						<img src="assets/images/icons8-linkedin-entouré-48.png" alt="LinkedIn" class="h-6 w-6">
-					</a>
-					<a href="https://github.com/AbasDass" target="_blank" aria-label="GitHub" class="p-2 rounded hover:bg-gray-100">
-						<img src="assets/images/icons8-github-48 (2).png" alt="GitHub" class="h-6 w-6">
-					</a>
-				</div>
+<body>
+	<!-- ────────── NAVIGATION ────────── -->
+	<header class="nav" id="nav">
+		<div class="container nav__inner">
+			<a href="#accueil" class="nav__logo">K<span>.</span>A</a>
+			<ul class="nav__links" id="navLinks">
+				<li><a href="#accueil" class="nav__link">Accueil</a></li>
+				<li><a href="#projets" class="nav__link">Projets</a></li>
+				<li><a href="#a-propos" class="nav__link">A propos</a></li>
+				<li><a href="#contact" class="nav__link">Contact</a></li>
+			</ul>
+			<div class="nav__socials">
+				<a href="https://www.linkedin.com/in/abas-konat%C3%A9-2aa49a223/?originalSubdomain=fr" target="_blank" class="nav__social" aria-label="LinkedIn">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+				</a>
+				<a href="https://github.com/AbasDass" target="_blank" class="nav__social" aria-label="GitHub">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+				</a>
 			</div>
+			<button class="nav__toggle" id="navToggle" aria-label="Menu">
+				<span></span><span></span><span></span>
+			</button>
 		</div>
 	</header>
 
-	<!-- Accueil -->
-	<section id="accueil" class="relative">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-			<div class="grid md:grid-cols-2 items-center gap-10">
-				<div>
-					<!-- Remplace juste la valeur de data-birthdate par ta date de naissance (YYYY-MM-DD) -->
-                    <p id="age-pill"
-                    data-birthdate="1997-03-15"
-                    class="inline-block rounded-full bg-blue-50 text-blue-700 px-3 py-1 text-xs font-medium">
-                    <!-- Contenu initial, remplacé par JS -->
-                    00 ans
-                    </p>
-					<h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
-                        KONATE <span class="text-gray-500">Abas</span>
-                      </h1>
-                      <p class="mt-3 text-xl text-gray-700">
-                        Créateur d’applications web  <span class="font-semibold text-blue-600">Laravel freelance</span>
-                      </p>
-					<div class="mt-6 flex flex-wrap items-center gap-3">
-						<a href="mailto:contact@konateabas.fr" class="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
-							<span>Me contacter</span>
-						</a>
-						<a href="#projets" class="inline-flex items-center gap-2 rounded-md border border-gray-300 px-4 py-2 text-gray-800 hover:border-blue-500 hover:text-blue-600">Voir mes projets</a>
+	<!-- ────────── HERO ────────── -->
+	<section id="accueil" class="hero">
+		<div class="container hero__grid">
+			<div>
+				<!-- <div class="reveal">
+					<p class="hero__label" id="age-pill" data-birthdate="1997-03-15">00 ans</p>
+				</div> -->
+				<h1 class="hero__name reveal reveal-delay-1">
+					KONATE<span>Abas</span>
+				</h1>
+				<p class="hero__subtitle reveal reveal-delay-2">
+					Createur d'applications web <strong>Laravel freelance</strong>
+				</p>
+				<div class="hero__actions reveal reveal-delay-3">
+					<a href="mailto:contact@konateabas.fr" class="btn btn--primary">Me contacter</a>
+					<a href="#projets" class="btn btn--outline">Voir mes projets</a>
+				</div>
+			</div>
+			<div class="hero__photo-wrapper reveal reveal-delay-2">
+				<div class="hero__photo-frame">
+					<img src="assets/images/photocvabas.png" alt="Photo de KONATE Abas" class="hero__photo">
+				</div>
+			</div>
+		</div>
+		<div class="hero__scroll">
+			<div class="hero__scroll-line"></div>
+			<span>Scroll</span>
+		</div>
+	</section>
+
+	<!-- ────────── PROJETS ────────── -->
+	<section id="projets" class="section projects">
+		<div class="container">
+			<div class="section__header reveal">
+				<span class="section__number">01</span>
+				<h2 class="section__title">Projets</h2>
+				<div class="section__line"></div>
+			</div>
+
+			<p class="projects__intro reveal reveal-delay-1">
+				<strong>Projets realises</strong> — Exemples de missions menees avec succes,
+				dont une <strong>boutique en ligne</strong> pour un createur TikTok (100k abonnes)
+				et des <strong>applications web modernes.</strong>
+			</p>
+
+			<div class="projects__grid">
+				<!-- Projet 1 -->
+				<article class="project-card reveal reveal-delay-2">
+					<div class="project-card__gallery">
+						<div class="gallery-thumb" onclick="openLightbox(0)">
+							<img src="assets/images/screen portfolio.png" alt="NLTS — Page d'accueil">
+						</div>
+						<div class="gallery-thumb" onclick="openLightbox(1)">
+							<img src="assets/images/screen portfo.png" alt="NLTS — Fiche joueur">
+						</div>
+						<div class="gallery-thumb" onclick="openLightbox(2)">
+							<img src="assets/images/screen port.png" alt="NLTS — Performance Record">
+						</div>
+						<div class="gallery-thumb" onclick="openLightbox(3)">
+							<img src="assets/images/screen p.png" alt="NLTS — Login">
+						</div>
+					</div>
+					<div class="project-card__body">
+						<h3 class="project-card__title">NLTS</h3>
+						<p class="project-card__desc">
+    <strong>NLTS (NBA Live Tracking & Stats)</strong> est une plateforme d’<strong>analyse avancée des performances NBA</strong> qui transforme les <strong>données brutes</strong> en <strong>insights exploitables</strong>.
+
+    Le projet combine <strong>statistiques sportives</strong>, <strong>analyse contextuelle</strong> et <strong>visualisation intelligente</strong> pour aider à mieux comprendre les performances des joueurs et les dynamiques de jeu.
+
+    Développé avec une <strong>architecture moderne orientée data</strong>, NLTS illustre ma capacité à concevoir des <strong>plateformes SaaS complètes</strong>, intégrant <strong>API</strong>, <strong>traitement de données</strong> et <strong>interfaces analytiques</strong>.
+</p>
+						<div class="project-card__tags">
+							<span class="tag">Laravel</span>
+							<span class="tag">API</span>
+						</div>
+					</div>
+				</article>
+
+				<!-- Projet 2 -->
+				<article class="project-card reveal reveal-delay-3">
+					<div class="project-card__image">
+						<img src="assets/images/luxurycapt.PNG" alt="Luxury&Co e-commerce">
+					</div>
+					<div class="project-card__body">
+						<h3 class="project-card__title">Luxury&amp;Co</h3>
+						<p class="project-card__desc">
+							Developpement d'un e-commerce complet avec gestion du panier, paiement Stripe et back-office.
+							Projet livre pour un createur TikTok suivi par <strong>100 000 abonnes</strong>.
+						</p>
+						<div class="project-card__tags">
+							<span class="tag">Laravel</span>
+							<span class="tag">Stripe</span>
+							<span class="tag">Tailwind</span>
+						</div>
+					</div>
+				</article>
+			</div>
+
+			<a href="https://github.com/AbasDass" target="_blank" class="projects__github reveal reveal-delay-4">
+				Voir tous mes projets sur GitHub
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+			</a>
+		</div>
+	</section>
+
+	<!-- ────────── A PROPOS ────────── -->
+	<section id="a-propos" class="section">
+		<div class="container">
+			<div class="section__header reveal">
+				<span class="section__number">02</span>
+				<h2 class="section__title">A propos</h2>
+				<div class="section__line"></div>
+			</div>
+
+			<div class="about__content">
+				<div class="about__text reveal reveal-delay-1">
+					<p>
+						Je suis <strong>createur d'applications web avec Laravel</strong>,
+						specialise en <strong>developpement Back-End PHP</strong>.
+						J'accompagne les createurs, PME et startups dans la conception de
+						<strong>sites modernes, e-commerce, APIs et outils metiers</strong>.
+					</p>
+					<p>
+						Mon objectif : creer des solutions <strong>rapides, securisees et faciles a utiliser</strong>,
+						qui apportent une vraie valeur aux utilisateurs. Je peux egalement <strong>intervenir rapidement pour corriger des bugs ou assurer la maintenance</strong>,
+						afin de garantir la continuite de vos projets.
+					</p>
+					<div class="about__highlight">
+						<p>
+							J'ai notamment developpe une boutique en ligne pour un createur TikTok suivi par 100 000 abonnes.
+						</p>
 					</div>
 				</div>
-				<div class="order-first md:order-none">
-					<img src="assets/images/photocvabas.png" alt="Photo de KONATE Abas" class="w-36 h-36 sm:w-44 sm:h-44 object-cover rounded-2xl shadow-xl mx-auto">
+
+				<div class="about__stats reveal reveal-delay-2">
+					<div class="stat">
+						<div class="stat__number">100k</div>
+						<div class="stat__label">Abonnes du client TikTok</div>
+					</div>
+					<div class="stat">
+						<div class="stat__number">Laravel</div>
+						<div class="stat__label">Framework de predilection</div>
+					</div>
+					<div class="stat">
+						<div class="stat__number">PHP</div>
+						<div class="stat__label">Specialisation Back-End</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Projets -->
-	<section id="projets" class="bg-gray-50 border-y border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <div class="flex items-end justify-between gap-4">
-            <h2 class="text-2xl sm:text-3xl font-bold">Projets</h2>
-            <a href="https://github.com/AbasDass" target="_blank"
-               class="text-sm text-blue-600 hover:text-blue-700">Mes projets sur GitHub</a>
-          </div>
-      
-          <!-- Projet en cours -->
-          <p class="mt-3 text-gray-700">
-            <span class="font-semibold text-blue-600">Projets réalisés</span> — Exemples de missions menées avec succès,
-            dont une <span class="font-semibold">boutique en ligne</span> pour un créateur TikTok (80k abonnés)
-            et des <span class="font-semibold">applications web modernes.</span>
-          </p>
-          
-      
-          <div class="mt-10 grid sm:grid-cols-2 gap-6">
-            <!-- Projet vitrine (formation) -->
-            <article class="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-              <div class="aspect-[16/10] overflow-hidden bg-gray-50 flex justify-center items-center">
-                <img src="assets/images/NLTSCAPT.PNG"
-                     alt="Projet vitrine"
-                     class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-              </div>
-              
-                <div class="p-5">
-                  <h3 class="font-semibold">NBA LIVE TRACKER STATS</h3>
-                  <p class="mt-2 text-sm text-gray-600">
-                    Développement d’un site autour des <span class="font-semibold">statistiques NBA</span>,
-                    explorant les performances des joueurs et leur <span class="font-semibold">causalité avec la vie personnelle</span>.
-                    Projet mêlant data, visualisation et analyse en temps réel.
-                  </p>
-                  
-                  <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                    <span class="rounded-full bg-gray-100 px-3 py-1">LARAVEL</span>
-                    <span class="rounded-full bg-gray-100 px-3 py-1">API</span>
-                  </div>
-                </div>
-              </article>
-            <!-- Projet réel : e-commerce -->
-            <article class="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-              <div class="aspect-[16/10] overflow-hidden bg-gray-100">
-                <img src="assets/images/luxurycapt.PNG"
-                     alt="Projet e-commerce Laravel"
-                     class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
-              </div>
-              <div class="p-5">
-                <h3 class="font-semibold">Luxury&Co</h3>
-                <p class="mt-2 text-sm text-gray-600">
-                  Développement d’un e-commerce complet avec gestion du panier, paiement Stripe et back-office.
-                  Projet livré pour un créateur TikTok suivi par <span class="font-semibold">80 000 abonnés</span>.
-                </p>
-                <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                  <span class="rounded-full bg-gray-100 px-3 py-1">Laravel</span>
-                  <span class="rounded-full bg-gray-100 px-3 py-1">Stripe</span>
-                  <span class="rounded-full bg-gray-100 px-3 py-1">Tailwind</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-      
+	<!-- ────────── CONTACT ────────── -->
+	<section id="contact" class="section contact">
+		<div class="container">
+			<div class="section__header reveal" style="justify-content: center;">
+				<span class="section__number">03</span>
+				<h2 class="section__title">Contact</h2>
+			</div>
 
-	<!-- À propos -->
-	<section id="a-propos">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-			<h2 class="text-2xl font-bold tracking-tight">À propos</h2>
-            <p class="mt-4 text-gray-600 leading-relaxed">
-                Je suis <span class="font-semibold">créateur d’applications web avec Laravel</span>,
-                spécialisé en <span class="font-semibold">développement Back-End PHP</span>.
-                J’accompagne les créateurs, PME et startups dans la conception de
-                <span class="font-semibold">sites modernes, e-commerce, APIs et outils métiers</span>.
-            </p>
-            <p class="mt-3 text-gray-600 leading-relaxed">
-                Mon objectif : créer des solutions <span class="font-semibold">rapides, sécurisées et faciles à utiliser</span>,
-                qui apportent une vraie valeur aux utilisateurs. Je peux également <span class="font-semibold">intervenir rapidement pour corriger des bugs ou assurer la maintenance</span>,
-                afin de garantir la continuité de vos projets.
-            </p>
-            <p class="mt-3 text-gray-600 leading-relaxed">
-                J’ai notamment développé une boutique
-                en ligne pour un créateur TikTok suivi par <span class="font-semibold">80 000 abonnés</span>.
-            </p>
+			<div class="contact__inner reveal reveal-delay-1">
+				<p class="contact__subtitle">
+					Disponible pour vos projets web — Laravel, sites, applications, e-commerce.
+					N'hesitez pas a me contacter, je reponds rapidement.
+				</p>
+
+				<div class="contact__links">
+					<a href="mailto:contact@konateabas.fr" class="contact-link contact-link--primary">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+						contact@konateabas.fr
+					</a>
+					<a href="tel:+33695072725" class="contact-link">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+						06 95 07 27 25
+					</a>
+					<a href="https://www.linkedin.com/in/abas-konat%C3%A9-2aa49a223/?originalSubdomain=fr" target="_blank" class="contact-link">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+						LinkedIn
+					</a>
+					<a href="https://github.com/AbasDass" target="_blank" class="contact-link">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+						GitHub
+					</a>
+					<a href="assets/images/CV_Abas_Konate.pdf" target="_blank" class="contact-link">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+						CV (PDF)
+					</a>
+				</div>
+			</div>
 		</div>
 	</section>
 
-	<!-- Contact -->
-	<section id="contact" class="bg-gray-50 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <h2 class="text-2xl sm:text-3xl font-bold">Contact</h2>
-          <p class="mt-4 text-gray-700">
-            Disponible pour vos projets web (Laravel, sites, applications, e-commerce).
-            N’hésitez pas à me contacter, je réponds rapidement.
-          </p>
-          <div class="mt-6 flex flex-wrap items-center gap-4">
-            <!-- Email -->
-            <a href="mailto:konate.abas@hotmail.fr"
-               class="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
-              📧 contact@konateabas.fr
-            </a>
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/abas-konat%C3%A9-2aa49a223/?originalSubdomain=fr"
-               target="_blank"
-               class="inline-flex items-center gap-2 rounded-md border border-gray-300 px-4 py-2 text-gray-800 hover:border-blue-500 hover:text-blue-600">
-              <img src="assets/images/icons8-linkedin-entouré-48.png" alt="LinkedIn" class="h-5 w-5">LinkedIn
-            </a>
-            <!-- GitHub -->
-            <a href="https://github.com/AbasDass"
-               target="_blank"
-               class="inline-flex items-center gap-2 rounded-md border border-gray-300 px-4 py-2 text-gray-800 hover:border-blue-500 hover:text-blue-600">
-              <img src="assets/images/icons8-github-48 (2).png" alt="GitHub" class="h-5 w-5">GitHub
-            </a>
-            <!-- CV -->
-            <a href="assets/images/CV_Abas_Konate.pdf"
-               target="_blank"
-               class="inline-flex items-center gap-2 rounded-md border border-gray-300 px-4 py-2 text-gray-800 hover:border-blue-500 hover:text-blue-600">
-              <img src="assets/images/icons8-cv-48.png" alt="CV" class="h-5 w-5">CV (PDF)
-            </a>
-          </div>
-        </div>
-      </section>
-      
+	<!-- ────────── LIGHTBOX ────────── -->
+	<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+		<button class="lightbox__close" onclick="closeLightbox(event)" aria-label="Fermer">
+			<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+		</button>
+		<button class="lightbox__nav lightbox__nav--prev" onclick="navigateLightbox(event, -1)" aria-label="Precedent">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+		</button>
+		<img class="lightbox__img" id="lightboxImg" src="" alt="">
+		<button class="lightbox__nav lightbox__nav--next" onclick="navigateLightbox(event, 1)" aria-label="Suivant">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+		</button>
+		<div class="lightbox__counter" id="lightboxCounter"></div>
+	</div>
 
-	<footer class="border-t border-gray-200">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-4">
-			<p>© <span id="year"></span> KONATE Abas. Tous droits réservés.</p>
+	<!-- ────────── FOOTER ────────── -->
+	<footer class="footer">
+		<div class="container footer__inner">
+			<p>&copy; <span id="year"></span> KONATE Abas. Tous droits reserves.</p>
+			<a href="#accueil" class="footer__back-to-top">
+				Retour en haut
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+			</a>
 		</div>
 	</footer>
 
 	<script>
+		// ── Year ──
 		document.getElementById('year').textContent = new Date().getFullYear();
 
-        (function () {
-        const el = document.getElementById('age-pill');
-        if (!el) return;
+		// ── Age calculation ──
+		(function () {
+			const el = document.getElementById('age-pill');
+			if (!el) return;
+			const iso = el.dataset.birthdate;
+			if (!iso) return;
+			const [y, m, d] = iso.split('-').map(Number);
+			const birth = new Date(y, m - 1, d);
+			const today = new Date();
+			let age = today.getFullYear() - birth.getFullYear();
+			const hasHadBirthdayThisYear =
+				today.getMonth() > birth.getMonth() ||
+				(today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
+			if (!hasHadBirthdayThisYear) age--;
+			el.textContent = age + ' ans';
+			const dd = String(d).padStart(2, '0');
+			const mm = String(m).padStart(2, '0');
+			el.title = 'Ne le ' + dd + '/' + mm + '/' + y;
+		})();
 
-        const iso = el.dataset.birthdate; // ex: "1997-03-15"
-        if (!iso) return;
+		// ── Navbar scroll effect ──
+		const nav = document.getElementById('nav');
+		window.addEventListener('scroll', () => {
+			nav.classList.toggle('scrolled', window.scrollY > 60);
+		}, { passive: true });
 
-        const [y, m, d] = iso.split('-').map(Number);
-        const birth = new Date(y, m - 1, d);
+		// ── Mobile nav toggle ──
+		const navToggle = document.getElementById('navToggle');
+		const navLinks = document.getElementById('navLinks');
+		navToggle.addEventListener('click', () => {
+			navLinks.classList.toggle('open');
+		});
+		navLinks.querySelectorAll('.nav__link').forEach(link => {
+			link.addEventListener('click', () => navLinks.classList.remove('open'));
+		});
 
-        const today = new Date();
-        let age = today.getFullYear() - birth.getFullYear();
+		// ── Lightbox ──
+		const lbImages = [
+			'assets/images/screen portfolio.png',
+			'assets/images/screen portfo.png',
+			'assets/images/screen port.png',
+			'assets/images/screen p.png'
+		];
+		let lbIndex = 0;
+		const lightbox = document.getElementById('lightbox');
+		const lightboxImg = document.getElementById('lightboxImg');
+		const lightboxCounter = document.getElementById('lightboxCounter');
 
-        // Si l'anniversaire n'est pas encore passé cette année, on retire 1
-        const hasHadBirthdayThisYear =
-            today.getMonth() > birth.getMonth() ||
-            (today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
-        if (!hasHadBirthdayThisYear) age--;
+		function openLightbox(index) {
+			lbIndex = index;
+			updateLightbox();
+			lightbox.classList.add('active');
+			document.body.style.overflow = 'hidden';
+		}
 
-        el.textContent = age + ' ans';
-        // Bonus : un title sympa au survol
-        const dd = String(d).padStart(2, '0');
-        const mm = String(m).padStart(2, '0');
-        el.title = `Né(e) le ${dd}/${mm}/${y}`;
-        })();
+		function closeLightbox(e) {
+			if (e.target === lightbox || e.currentTarget.classList.contains('lightbox__close')) {
+				lightbox.classList.remove('active');
+				document.body.style.overflow = '';
+			}
+		}
+
+		function navigateLightbox(e, dir) {
+			e.stopPropagation();
+			lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+			updateLightbox();
+		}
+
+		function updateLightbox() {
+			lightboxImg.src = lbImages[lbIndex];
+			lightboxCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+		}
+
+		document.addEventListener('keydown', (e) => {
+			if (!lightbox.classList.contains('active')) return;
+			if (e.key === 'Escape') { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
+			if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; updateLightbox(); }
+			if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; updateLightbox(); }
+		});
+
+		// ── Scroll reveal ──
+		const revealElements = document.querySelectorAll('.reveal');
+		const revealObserver = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+					revealObserver.unobserve(entry.target);
+				}
+			});
+		}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+		revealElements.forEach(el => revealObserver.observe(el));
 	</script>
 </body>
 </html>
